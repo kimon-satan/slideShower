@@ -1,0 +1,51 @@
+<SET_FILLER>
+
+    <SECTION>
+        <TITLE>A</TITLE>
+        <SIMON>
+            <DRAW>STANDARD</DRAW>
+            <POS>CENTER</POS>
+        </SIMON>
+        <LUKE>
+            <DRAW>STANDARD</DRAW>
+            <POS>CENTER</POS>
+        </LUKE>
+        <CIMEON>
+            <DRAW>STANDARD</DRAW>
+            <POS>CENTER</POS>
+        </CIMEON>
+    </SECTION>
+    
+    <SECTION>
+        <TITLE>A1</TITLE>
+        <SIMON>
+            <DRAW>STANDARD</DRAW>
+            <POS>CENTER</POS>
+        </SIMON>
+        <LUKE>
+            <DRAW>STANDARD</DRAW>
+            <POS>CENTER</POS>
+        </LUKE>
+        <CIMEON>
+            <DRAW>STANDARD</DRAW>
+            <POS>CENTER</POS>
+        </CIMEON>
+    </SECTION>
+    
+    <SECTION>
+        <TITLE>AA</TITLE>
+        <SIMON>
+            <DRAW>SPLIT</DRAW>
+            <POS>LEFT</POS>
+        </SIMON>
+        <LUKE>
+            <DRAW>SPLIT</DRAW>
+            <POS>RIGHT</POS>
+        </LUKE>
+        <CIMEON>
+            <DRAW>STANDARD</DRAW>
+            <POS>CENTER</POS>
+        </CIMEON>
+    </SECTION>
+    
+</SET_FILLER>
