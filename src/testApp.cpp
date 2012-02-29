@@ -4,15 +4,12 @@
 //--------------------------------------------------------------
 void testApp::setup(){
 	
-	for(int i = 0; i < 3; i++){
-		currentImage[i] = 0;
-		perfAlphas[i] = 0;
-	}
+	ofSetRectMode(OF_RECTMODE_CENTER);
+	ofSetVerticalSync(true);
+	ofHideCursor();
+	ofSetFrameRate(30);
 	
-	c_perf = MISC;
 	screenMode = 0;
-	currentSection = 0;
-	
 	loadSectionSettings();
 	
 	ofDirectory dir;
@@ -54,7 +51,6 @@ void testApp::setup(){
 					
 				}
 				
-				random_shuffle ( t_person.begin(), t_person.end() );
 				
 				t_section[index] = t_person;
 			}
@@ -63,7 +59,11 @@ void testApp::setup(){
 		
 		images.push_back(t_section);
 	}
-
+	
+	c_perf = SIMON;
+	currentSection = -1;
+	nextSection();
+	for(int i = 0; i < 3; i++)isMouseDown[i] = false;
 
 }
 
@@ -75,38 +75,60 @@ void testApp::loadSectionSettings(){
 		
 		
 		if(XML.pushTag("SET_FILLER",0)){
-		
+			
 			numSections = XML.getNumTags("SECTION");
 			
 			for(int i = 0; i < numSections; i++){
-			
+				
 				if(XML.pushTag("SECTION", i)){
 					
 					sectionTitles.push_back(XML.getValue("TITLE",""));
+					sectionSequence.push_back(XML.getValue("SEQUENCE", "RAND"));
+					triggerPerformer.push_back(getPerformer(XML.getValue("TRIGGER", "")));
 					
 					vector<string> temp_dts;
 					vector<string> temp_pos;
 					
+					vector<float> temp_attacks;
+					vector<float> temp_holds;
+					vector<float> temp_fades;
+					
+					
+					
 					if(XML.pushTag("SIMON", 0)){
 						temp_dts.push_back(XML.getValue("DRAW", "STANDARD"));
 						temp_pos.push_back(XML.getValue("POS", "CENTER"));
+						temp_attacks.push_back(XML.getValue("ATT_SECS",0.0f));
+						temp_fades.push_back(XML.getValue("FADE_SECS", 1.0f));
+						temp_holds.push_back(XML.getValue("HOLD_SECS", 0.0f));
+						
 						XML.popTag();
 					}
 					
 					if(XML.pushTag("LUKE", 0)){
 						temp_dts.push_back(XML.getValue("DRAW", "STANDARD"));
 						temp_pos.push_back(XML.getValue("POS", "CENTER"));
+						temp_attacks.push_back(XML.getValue("ATT_SECS",0.0f));
+						temp_fades.push_back(XML.getValue("FADE_SECS", 1.0f));
+						temp_holds.push_back(XML.getValue("HOLD_SECS", 0.0f));
 						XML.popTag();
 					}
 					
 					if(XML.pushTag("CIMEON", 0)){
 						temp_dts.push_back(XML.getValue("DRAW", "STANDARD"));
 						temp_pos.push_back(XML.getValue("POS", "CENTER"));
+						temp_attacks.push_back(XML.getValue("ATT_SECS",0.0f));
+						temp_fades.push_back(XML.getValue("FADE_SECS", 1.0f));
+						temp_holds.push_back(XML.getValue("HOLD_SECS", 0.0f));
 						XML.popTag();
 					}
 					
 					sectionDrawTypes.push_back(temp_dts);
 					sectionPositions.push_back(temp_pos);
+					sectionAttackTimes.push_back(temp_attacks);
+					sectionFadeTimes.push_back(temp_fades);
+					sectionHoldTimes.push_back(temp_holds);
+					
 					XML.popTag();
 				}
 			}
@@ -115,10 +137,12 @@ void testApp::loadSectionSettings(){
 		}
 		
 	}
-
 	
-
+	
+	
 }
+
+
 
 //--------------------------------------------------------------
 void testApp::update(){
@@ -126,41 +150,96 @@ void testApp::update(){
 	ofBackground(0);	
 	
 	for(int i = 0; i < 3; i++){
-		 if(sectionDrawTypes[currentSection][i] == "SPLIT"){
-			if(c_perf == e_performer(i))perfAlphas[i] = 255;
-		 }
-	}
-	
-	// overrides
-	
-	for(int i = 0; i < 3; i++){
 		
-		if(sectionDrawTypes[currentSection][i] == "STANDARD"){
+		if(sectionDrawTypes[currentSection][i] == "SPLIT"){  
+			
+			if(c_perf == e_performer(i))perfAlphas[i] = 255;
+			
+		}else if(sectionDrawTypes[currentSection][i] == "STANDARD"){
+			
 			if(c_perf == e_performer(i)){
 				perfAlphas[i] = 255;
-				for(int j = 1; j < 3; j++)perfAlphas[(i + j)%3] = 0;
+				//cancel out other images
+				for(int j = 1; j < 3; j++)perfAlphas[(i + j)%3] = 0; 
 			}else{
 				perfAlphas[i] = 0;
 			}
+			
+		}else if(sectionDrawTypes[currentSection][i] == "FADE"){ // asr
+			
+			if(c_perf == e_performer(i) && isMouseDown[i]){
+				
+				perfAlphas[i] = (sectionAttackTimes[currentSection][i] > 0) ? 0 : 255;
+				preAlphas[i] = sectionHoldTimes[currentSection][i]; 
+				
+				//cancel out other images
+				for(int j = 1; j < 3; j++)perfAlphas[(i + j)%3] = 0; 
+				
+			}else if(perfAlphas[i] < 255 && preAlphas[i] > 0){
+			
+				perfAlphas[i] += 255.0f * (1.0f/sectionAttackTimes[currentSection][i]) * (1.0f/ofGetFrameRate());
+				
+			}else if(perfAlphas[i] >= 255 && preAlphas[i] > 0){
+			
+				preAlphas[i] -= 1.0f/ofGetFrameRate();
+				
+			}else if(perfAlphas[i] > 0){
+				
+				perfAlphas[i] -= 255.0f * (1.0f/sectionFadeTimes[currentSection][i]) * (1.0f/ofGetFrameRate());
+				
+			}
+		
+		}else if(sectionDrawTypes[currentSection][i] == "FADE"){ // ar
+			
+			if(c_perf == e_performer(i) && isMouseDown[i]){
+				
+				perfAlphas[i] = (sectionAttackTimes[currentSection][i] > 0) ? 0 : 255;
+				preAlphas[i] = sectionHoldTimes[currentSection][i]; 
+				
+				//cancel out other images
+				for(int j = 1; j < 3; j++)perfAlphas[(i + j)%3] = 0; 
+				
+			}else if(perfAlphas[i] < 255 && preAlphas[i] > 0){
+				
+				perfAlphas[i] += 255.0f * (1.0f/sectionAttackTimes[currentSection][i]) * (1.0f/ofGetFrameRate());
+				
+			}else if(perfAlphas[i] >= 255 && preAlphas[i] > 0){
+				
+				preAlphas[i] -= 1.0f/ofGetFrameRate();
+				
+			}else if(perfAlphas[i] > 0){
+				
+				perfAlphas[i] -= 255.0f * (1.0f/sectionFadeTimes[currentSection][i]) * (1.0f/ofGetFrameRate());
+				
+			}
+			
 		}
+		
 	}
 	
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){	
+
 	
 	ofSetColor(255);
 	
 	if(screenMode == 0){
 		
+		ofEnableAlphaBlending();
+		
 		for(int i = 0; i < 3; i++){
 			if(sectionDrawTypes[currentSection][i] == "STANDARD"){
+				standardDraw(e_performer(i));
+			}else if(sectionDrawTypes[currentSection][i] == "FADE"){
 				standardDraw(e_performer(i));
 			}else if(sectionDrawTypes[currentSection][i] == "SPLIT"){
 				splitDraw(e_performer(i));
 			}
 		}
+		
+		ofDisableAlphaBlending();
 		
 	}else{
 		
@@ -175,6 +254,7 @@ void testApp::draw(){
 		
 		ofDrawBitmapString("currentSection: " + ofToString(currentSection), 10,200);
 	}
+
 	
 }
 
@@ -183,25 +263,27 @@ void testApp::standardDraw(e_performer t_perf){
 	
 	if(perfAlphas[t_perf] > 0){
 		if(images[currentSection][t_perf].size() > 0){
-			images[currentSection][t_perf][currentImage[t_perf]]->draw(0,0);
+			ofSetColor(255, 255, 255,perfAlphas[t_perf]);
+			images[currentSection][t_perf][currentImage[t_perf]]->draw(ofGetScreenWidth()/2,ofGetScreenHeight()/2,1200,800);
 		}
 	}
-			
+	
+	ofSetColor(255);
 }
 
 void testApp::splitDraw(e_performer t_perf){
-
+	
 	if(perfAlphas[t_perf] > 0){
 		if(images[currentSection][t_perf].size() > 0){
 			
 			ofVec2f pos(0,0);
-			if(sectionPositions[currentSection][t_perf] == "LEFT")pos.set(0,0);
-			if(sectionPositions[currentSection][t_perf] == "CENTER")pos.set(ofGetScreenWidth()/3,0);
-			if(sectionPositions[currentSection][t_perf] == "RIGHT")pos.set(ofGetScreenWidth() * 2/3,0);
-			images[currentSection][t_perf][currentImage[t_perf]]->draw(pos.x, pos.y, ofGetScreenWidth()/3, ofGetScreenHeight());
+			if(sectionPositions[currentSection][t_perf] == "LEFT")pos.set(ofGetScreenWidth()/6,ofGetScreenHeight()/2);
+			if(sectionPositions[currentSection][t_perf] == "CENTER")pos.set(ofGetScreenWidth()/2,ofGetScreenHeight()/2);
+			if(sectionPositions[currentSection][t_perf] == "RIGHT")pos.set(ofGetScreenWidth() * 5/6,ofGetScreenHeight()/2);
+			images[currentSection][t_perf][currentImage[t_perf]]->draw(pos.x, pos.y, 400, ofGetScreenHeight());
 		}
 	}
-
+	
 }
 
 string testApp::getPerformerString(e_performer t){
@@ -215,6 +297,48 @@ string testApp::getPerformerString(e_performer t){
 	}
 	
 	return p_string;
+}
+
+int testApp::getPerformer(string s){
+	
+	if(s == "SIMON"){
+		cout << SIMON << endl;
+		return SIMON;
+	}
+	if(s == "LUKE"){
+		return LUKE;
+	}
+	if(s == "CIMEON"){
+		return CIMEON;
+	}
+	
+	return MISC;
+
+}
+
+void testApp::orderImages(int t_perf){
+	
+	if(sectionSequence[currentSection] == "RAND"){
+		random_shuffle ( images[currentSection][t_perf].begin(), images[currentSection][t_perf].end() );
+	}else if (sectionSequence[currentSection] == "FWDS_BKWDS"  ){
+		if(currentImage[t_perf] > 0)reverse( images[currentSection][t_perf].begin(), images[currentSection][t_perf].end() );
+	}
+	
+	currentImage[t_perf] = 0;
+	
+}
+
+void testApp::nextSection(){
+
+	currentSection = (currentSection + 1)%images.size();
+	for(int j = 0; j < 3; j++){
+		perfAlphas[j] = 0;
+		preAlphas[j] = 0;
+		currentImage[j] = 0;
+		orderImages(j);
+		if(j != c_perf)currentImage[j] = -1; //override for start of section so that increments to first image
+	}
+	
 }
 
 //--------------------------------------------------------------
@@ -255,20 +379,31 @@ void testApp::mousePressed(int x, int y, int button){
 
 void testApp::mousePressed(int device, int button){
 	
-	deviceNum = device;
+	deviceNum = device; //for display purposes
 	
 	for(int i = 0; i < 3; i ++){
+		
 		if(device == assigns[i]){
 			c_perf = e_performer(i);
+			isMouseDown[i] = true;
+			
 			if(button == 0){
+				
 				currentImage[i] += 1;
+				
+				
+				
 				if(currentImage[i] == images[currentSection][i].size()){
-					random_shuffle ( images[currentSection][i].begin(), images[currentSection][i].end() );
-					currentImage[i] = 0;
+					
+					if(sectionSequence[currentSection] == "FIXED" && c_perf == triggerPerformer[currentSection]){
+						nextSection();
+					}else{
+						orderImages(i);
+					}
 				}
+					
 			}else{
-				for(int j = 0; j < 3; j++)currentImage[j] = 0;
-				currentSection = (currentSection + 1)%images.size();
+				nextSection();
 			}
 			break;
 		}	
@@ -277,7 +412,16 @@ void testApp::mousePressed(int device, int button){
 	
 }
 
-void testApp::mouseReleased(int device, int button){}
+void testApp::mouseReleased(int device, int button){
+
+	for(int i = 0; i < 3; i ++){
+		
+		if(device == assigns[i]){
+			isMouseDown[i] = false;
+		}
+	}
+
+}
 
 
 //--------------------------------------------------------------

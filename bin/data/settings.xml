@@ -2,6 +2,7 @@
 
     <SECTION>
         <TITLE>A</TITLE>
+        <SEQUENCE>FWDS_BKWDS</SEQUENCE>
         <SIMON>
             <DRAW>STANDARD</DRAW>
             <POS>CENTER</POS>
@@ -17,7 +18,7 @@
     </SECTION>
     
     <SECTION>
-        <TITLE>A1</TITLE>
+        <TITLE>B</TITLE>
         <SIMON>
             <DRAW>STANDARD</DRAW>
             <POS>CENTER</POS>
@@ -33,7 +34,73 @@
     </SECTION>
     
     <SECTION>
-        <TITLE>AA</TITLE>
+        <TITLE>A</TITLE>
+        <SEQUENCE>FWDS_BKWDS</SEQUENCE>
+         <SIMON>
+            <DRAW>STANDARD</DRAW>
+            <POS>CENTER</POS>
+        </SIMON>
+        <LUKE>
+            <DRAW>STANDARD</DRAW>
+            <POS>CENTER</POS>
+        </LUKE>
+        <CIMEON>
+            <DRAW>STANDARD</DRAW>
+            <POS>CENTER</POS>
+        </CIMEON>
+    </SECTION>
+    
+    <SECTION>
+        <TITLE>B</TITLE>
+        <SIMON>
+            <DRAW>STANDARD</DRAW>
+            <POS>CENTER</POS>
+        </SIMON>
+        <LUKE>
+            <DRAW>STANDARD</DRAW>
+            <POS>CENTER</POS>
+        </LUKE>
+        <CIMEON>
+            <DRAW>STANDARD</DRAW>
+            <POS>CENTER</POS>
+        </CIMEON>
+    </SECTION>
+    
+    <SECTION>
+        <TITLE>C</TITLE>
+        <SIMON>
+            <DRAW>STANDARD</DRAW>
+            <POS>CENTER</POS>
+        </SIMON>
+        <LUKE>
+            <DRAW>STANDARD</DRAW>
+            <POS>CENTER</POS>
+        </LUKE>
+        <CIMEON>
+            <DRAW>STANDARD</DRAW>
+            <POS>CENTER</POS>
+        </CIMEON>
+    </SECTION>
+    
+    <SECTION>
+        <TITLE>B</TITLE>
+        <SIMON>
+            <DRAW>STANDARD</DRAW>
+            <POS>CENTER</POS>
+        </SIMON>
+        <LUKE>
+            <DRAW>STANDARD</DRAW>
+            <POS>CENTER</POS>
+        </LUKE>
+        <CIMEON>
+            <DRAW>STANDARD</DRAW>
+            <POS>CENTER</POS>
+        </CIMEON>
+    </SECTION>
+    
+    <SECTION>
+        <TITLE>D</TITLE>
+        <SEQUENCE>FWDS_BKWDS</SEQUENCE>
         <SIMON>
             <DRAW>SPLIT</DRAW>
             <POS>LEFT</POS>
@@ -47,5 +114,287 @@
             <POS>CENTER</POS>
         </CIMEON>
     </SECTION>
+    
+    <SECTION>
+        <TITLE>E</TITLE>
+        <SEQUENCE>FIXED</SEQUENCE>
+        <TRIGGER>LUKE</TRIGGER>
+        <SIMON>
+            <DRAW>FADE</DRAW>
+            <ATT_SECS>0.05</ATT_SECS>
+            <HOLD_SECS>1.0</HOLD_SECS>
+            <FADE_SECS>1.0</FADE_SECS>
+            <POS>CENTER</POS>
+        </SIMON>
+        <LUKE>
+            <DRAW>SPLIT</DRAW>
+            <POS>RIGHT</POS>
+        </LUKE>
+        <CIMEON>
+            <DRAW>SPLIT</DRAW>
+            <POS>CENTER</POS>
+        </CIMEON>
+    </SECTION>
+    
+    <SECTION>
+        <TITLE>E2</TITLE>
+        <SEQUENCE>FIXED</SEQUENCE>
+        <TRIGGER>CIMEON</TRIGGER>
+        <SIMON>
+            <DRAW>SPLIT</DRAW>
+            <POS>LEFT</POS>
+        </SIMON>
+        <LUKE>
+            <DRAW>SPLIT</DRAW>
+            <POS>RIGHT</POS>
+        </LUKE>
+        <CIMEON>
+            <DRAW>SPLIT</DRAW>
+            <POS>CENTER</POS>
+        </CIMEON>
+    </SECTION>
+    
+    <SECTION>
+        <TITLE>EFsolo</TITLE>
+        <SIMON>
+            <DRAW>SPLIT</DRAW>
+            <POS>CENTER</POS>
+        </SIMON>
+        <LUKE>
+            <DRAW>SPLIT</DRAW>
+            <POS>RIGHT</POS>
+        </LUKE>
+        <CIMEON>
+            <DRAW>STANDARD</DRAW>
+            <POS>CENTER</POS>
+        </CIMEON>
+    </SECTION>
+    
+    <SECTION>
+        <TITLE>Fsplits</TITLE>
+        <SIMON>
+            <DRAW>SPLIT</DRAW>
+            <POS>LEFT</POS>
+        </SIMON>
+        <LUKE>
+            <DRAW>SPLIT</DRAW>
+            <POS>RIGHT</POS>
+        </LUKE>
+        <CIMEON>
+            <DRAW>SPLIT</DRAW>
+            <POS>CENTER</POS>
+        </CIMEON>
+    </SECTION>
+    
+    <SECTION>
+        <TITLE>EFsolo</TITLE>
+        <SIMON>
+            <DRAW>SPLIT</DRAW>
+            <POS>CENTER</POS>
+        </SIMON>
+        <LUKE>
+            <DRAW>SPLIT</DRAW>
+            <POS>RIGHT</POS>
+        </LUKE>
+        <CIMEON>
+            <DRAW>STANDARD</DRAW>
+            <POS>CENTER</POS>
+        </CIMEON>
+    </SECTION>
+
+    <SECTION>
+        <TITLE>Fsplits</TITLE>
+        <SIMON>
+            <DRAW>SPLIT</DRAW>
+            <POS>LEFT</POS>
+        </SIMON>
+        <LUKE>
+            <DRAW>SPLIT</DRAW>
+            <POS>RIGHT</POS>
+        </LUKE>
+        <CIMEON>
+            <DRAW>SPLIT</DRAW>
+            <POS>CENTER</POS>
+        </CIMEON>
+    </SECTION>
+    
+    <SECTION>
+        <TITLE>EFsolo</TITLE>
+        <SIMON>
+            <DRAW>SPLIT</DRAW>
+            <POS>CENTER</POS>
+        </SIMON>
+        <LUKE>
+            <DRAW>SPLIT</DRAW>
+            <POS>RIGHT</POS>
+        </LUKE>
+        <CIMEON>
+            <DRAW>STANDARD</DRAW>
+            <POS>CENTER</POS>
+        </CIMEON>
+    </SECTION>
+    
+    <SECTION>
+        <TITLE>Fsplits</TITLE>
+        <SIMON>
+            <DRAW>SPLIT</DRAW>
+            <POS>LEFT</POS>
+        </SIMON>
+        <LUKE>
+            <DRAW>SPLIT</DRAW>
+            <POS>RIGHT</POS>
+        </LUKE>
+        <CIMEON>
+            <DRAW>SPLIT</DRAW>
+            <POS>CENTER</POS>
+        </CIMEON>
+    </SECTION>
+    
+    
+    <SECTION>
+        <TITLE>G</TITLE> //18
+        <SIMON>
+            <DRAW>STANDARD</DRAW>
+            <POS>CENTER</POS>
+        </SIMON>
+        <LUKE>
+            <DRAW>STANDARD</DRAW>
+            <POS>CENTER</POS>
+        </LUKE>
+        <CIMEON>
+            <DRAW>STANDARD</DRAW>
+            <POS>CENTER</POS>
+        </CIMEON>
+    </SECTION>
+    
+    <SECTION>
+        <TITLE>HJ</TITLE>
+         <SIMON>
+            <DRAW>SPLIT</DRAW>
+            <POS>LEFT</POS>
+        </SIMON>
+        <LUKE>
+            <DRAW>SPLIT</DRAW>
+            <POS>RIGHT</POS>
+        </LUKE>
+        <CIMEON>
+            <DRAW>SPLIT</DRAW>
+            <POS>CENTER</POS>
+        </CIMEON>
+    </SECTION>
+    
+    <SECTION>
+        <TITLE>I</TITLE>
+         <SIMON>
+            <DRAW>STANDARD</DRAW>
+            <POS>LEFT</POS>
+        </SIMON>
+         <LUKE>
+            <DRAW>SPLIT</DRAW>
+            <POS>RIGHT</POS>
+        </LUKE>
+        <CIMEON>
+            <DRAW>SPLIT</DRAW>
+            <POS>CENTER</POS>
+        </CIMEON>
+    </SECTION>
+    
+    <SECTION>
+        <TITLE>HJ</TITLE>
+         <SIMON>
+            <DRAW>SPLIT</DRAW>
+            <POS>LEFT</POS>
+        </SIMON>
+        <LUKE>
+            <DRAW>SPLIT</DRAW>
+            <POS>RIGHT</POS>
+        </LUKE>
+        <CIMEON>
+            <DRAW>SPLIT</DRAW>
+            <POS>CENTER</POS>
+        </CIMEON>
+    </SECTION>
+
+    <SECTION>
+        <TITLE>K</TITLE>
+         <SIMON>
+            <DRAW>SPLIT</DRAW>
+            <POS>LEFT</POS>
+        </SIMON>
+        <LUKE>
+            <DRAW>STANDARD</DRAW>
+            <POS>CENTER</POS>
+        </LUKE>
+        <CIMEON>
+            <DRAW>SPLIT</DRAW>
+            <POS>CENTER</POS>
+        </CIMEON>
+    </SECTION>
+    
+    <SECTION>
+        <TITLE>L</TITLE>
+         <SIMON>
+            <DRAW>STANDARD</DRAW>
+            <POS>LEFT</POS>
+        </SIMON>
+        <LUKE>
+            <DRAW>STANDARD</DRAW>
+            <POS>RIGHT</POS>
+        </LUKE>
+        <CIMEON>
+            <DRAW>STANDARD</DRAW>
+            <POS>CENTER</POS>
+        </CIMEON>
+    </SECTION>
+    
+    <SECTION>
+        <TITLE>M</TITLE>
+         <SIMON>
+            <DRAW>STANDARD</DRAW>
+            <POS>LEFT</POS>
+        </SIMON>
+        <LUKE>
+            <DRAW>STANDARD</DRAW>
+            <POS>RIGHT</POS>
+        </LUKE>
+        <CIMEON>
+            <DRAW>STANDARD</DRAW>
+            <POS>CENTER</POS>
+        </CIMEON>
+    </SECTION>
+    
+    <SECTION>
+        <TITLE>N</TITLE>
+         <SIMON>
+            <DRAW>STANDARD</DRAW>
+            <POS>LEFT</POS>
+        </SIMON>
+        <LUKE>
+            <DRAW>STANDARD</DRAW>
+            <POS>RIGHT</POS>
+        </LUKE>
+        <CIMEON>
+            <DRAW>STANDARD</DRAW>
+            <POS>CENTER</POS>
+        </CIMEON>
+    </SECTION>
+    
+    <SECTION>
+        <TITLE>O</TITLE>
+         <SIMON>
+            <DRAW>SPLIT</DRAW>
+            <POS>LEFT</POS>
+        </SIMON>
+        <LUKE>
+            <DRAW>SPLIT</DRAW>
+            <POS>RIGHT</POS>
+        </LUKE>
+        <CIMEON>
+            <DRAW>SPLIT</DRAW>
+            <POS>CENTER</POS>
+        </CIMEON>
+    </SECTION>
+
+    
     
 </SET_FILLER>

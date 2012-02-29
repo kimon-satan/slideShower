@@ -41,24 +41,36 @@ private:
 	};
 	
 	string getPerformerString(e_performer t);
+	int getPerformer(string s);
 	
 	void standardDraw(e_performer t_perf);
 	void splitDraw(e_performer t_perf);
 	void loadSectionSettings();
+	void orderImages(int t_perf);
+	void nextSection();
 	
 	vector<vector<vector<ofImage * > > >images;
 	
 	int numSections;
 	
 	vector<string> sectionTitles;
+	vector<string> sectionSequence;
 	vector<vector<string > >sectionDrawTypes;
-	vector<vector<string> > sectionPositions;
 	
+	vector<vector<float> >sectionAttackTimes;
+	vector<vector<float> >sectionHoldTimes;
+	vector<vector<float> >sectionFadeTimes;
+	
+	vector<vector<string> > sectionPositions;
+	vector<int> triggerPerformer;
+	
+	bool isMouseDown[3];
 	int currentImage[3];
 	int deviceNum, currentSection;
 	e_performer c_perf;
 	
-	int perfAlphas[3];
+	float perfAlphas[3];
+	float preAlphas[3];
 	
 	string c_drawMode[3];
 	ofVec2f splitPosition[3]; // could be fixed for performer or variable
