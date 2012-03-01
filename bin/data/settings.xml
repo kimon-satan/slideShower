@@ -1,6 +1,19 @@
 <SET_FILLER>
 
     <SECTION>
+        <TITLE>A</TITLE> //dummy section for start
+        <SIMON>
+            <DRAW>NIL</DRAW>
+        </SIMON>
+        <LUKE>
+            <DRAW>NIL</DRAW>
+        </LUKE>
+        <CIMEON>
+            <DRAW>NIL</DRAW>
+        </CIMEON>
+    </SECTION>
+
+    <SECTION>
         <TITLE>A</TITLE>
         <SEQUENCE>FWDS_BKWDS</SEQUENCE>
         <SIMON>
@@ -18,18 +31,17 @@
     </SECTION>
     
     <SECTION>
-        <TITLE>B</TITLE>
+        <TITLE>B1</TITLE>
+        <SEQUENCE>ONE_SHOT</SEQUENCE>
         <SIMON>
             <DRAW>STANDARD</DRAW>
             <POS>CENTER</POS>
         </SIMON>
         <LUKE>
-            <DRAW>STANDARD</DRAW>
-            <POS>CENTER</POS>
+            <DRAW>NIL</DRAW>
         </LUKE>
         <CIMEON>
-            <DRAW>STANDARD</DRAW>
-            <POS>CENTER</POS>
+            <DRAW>NIL</DRAW>
         </CIMEON>
     </SECTION>
     
@@ -51,18 +63,17 @@
     </SECTION>
     
     <SECTION>
-        <TITLE>B</TITLE>
+        <TITLE>B2</TITLE>
+        <SEQUENCE>ONE_SHOT</SEQUENCE>
         <SIMON>
             <DRAW>STANDARD</DRAW>
             <POS>CENTER</POS>
         </SIMON>
         <LUKE>
-            <DRAW>STANDARD</DRAW>
-            <POS>CENTER</POS>
+            <DRAW>NIL</DRAW>
         </LUKE>
         <CIMEON>
-            <DRAW>STANDARD</DRAW>
-            <POS>CENTER</POS>
+            <DRAW>NIL</DRAW>
         </CIMEON>
     </SECTION>
     
@@ -83,122 +94,157 @@
     </SECTION>
     
     <SECTION>
-        <TITLE>B</TITLE>
+        <TITLE>B3</TITLE>
+        <SEQUENCE>ONE_SHOT</SEQUENCE>
         <SIMON>
             <DRAW>STANDARD</DRAW>
             <POS>CENTER</POS>
         </SIMON>
         <LUKE>
-            <DRAW>STANDARD</DRAW>
-            <POS>CENTER</POS>
+            <DRAW>NIL</DRAW>
         </LUKE>
         <CIMEON>
-            <DRAW>STANDARD</DRAW>
-            <POS>CENTER</POS>
+            <DRAW>NIL</DRAW>
         </CIMEON>
     </SECTION>
-    
-    <SECTION>
+        
+  <SECTION>
         <TITLE>D</TITLE>
         <SEQUENCE>FWDS_BKWDS</SEQUENCE>
         <SIMON>
             <DRAW>SPLIT</DRAW>
             <POS>LEFT</POS>
+            <FADE_SECS>0.1</FADE_SECS>
+            <CLEAR_TYPE>S_POS</CLEAR_TYPE>
         </SIMON>
         <LUKE>
             <DRAW>SPLIT</DRAW>
             <POS>RIGHT</POS>
+            <FADE_SECS>0.1</FADE_SECS>
+            <CLEAR_TYPE>S_POS</CLEAR_TYPE>
         </LUKE>
         <CIMEON>
             <DRAW>STANDARD</DRAW>
             <POS>CENTER</POS>
+            <ATT_SECS>0.05</ATT_SECS>
+            <HOLD_SECS>0</HOLD_SECS>
+            <FADE_SECS>0.2</FADE_SECS>
+            <CLEAR_TYPE>HARD_ALL</CLEAR_TYPE>
         </CIMEON>
     </SECTION>
     
     <SECTION>
-        <TITLE>E</TITLE>
-        <SEQUENCE>FIXED</SEQUENCE>
-        <TRIGGER>LUKE</TRIGGER>
+        <TITLE>E1</TITLE>
+        <SEQUENCE>ONE_SHOT</SEQUENCE>
         <SIMON>
-            <DRAW>FADE</DRAW>
-            <ATT_SECS>0.05</ATT_SECS>
-            <HOLD_SECS>1.0</HOLD_SECS>
-            <FADE_SECS>1.0</FADE_SECS>
-            <POS>CENTER</POS>
+         <DRAW>SPLIT</DRAW>
+            <POS>RIGHT</POS>
+            <HOLD_SECS>0</HOLD_SECS>
+            <CLEAR_TYPE>S_POS</CLEAR_TYPE>
         </SIMON>
         <LUKE>
-            <DRAW>SPLIT</DRAW>
-            <POS>RIGHT</POS>
+        <DRAW>NIL</DRAW>
         </LUKE>
         <CIMEON>
-            <DRAW>SPLIT</DRAW>
-            <POS>CENTER</POS>
+         <DRAW>NIL</DRAW>
         </CIMEON>
     </SECTION>
     
     <SECTION>
         <TITLE>E2</TITLE>
         <SEQUENCE>FIXED</SEQUENCE>
-        <TRIGGER>CIMEON</TRIGGER>
+        <TRIGGER>LUKE</TRIGGER>
         <SIMON>
-            <DRAW>SPLIT</DRAW>
-            <POS>LEFT</POS>
+            <DRAW>STANDARD</DRAW>
+            <ATT_SECS>0.05</ATT_SECS>
+            <HOLD_SECS>1.0</HOLD_SECS>
+            <FADE_SECS>1.0</FADE_SECS>
+            <AUTO_FADE>1</AUTO_FADE>
+            <POS>CENTER</POS>
         </SIMON>
         <LUKE>
             <DRAW>SPLIT</DRAW>
             <POS>RIGHT</POS>
+            <HOLD_SECS>0</HOLD_SECS>
+            <CLEAR_TYPE>S_POS</CLEAR_TYPE>
         </LUKE>
         <CIMEON>
             <DRAW>SPLIT</DRAW>
             <POS>CENTER</POS>
+            <HOLD_SECS>0</HOLD_SECS>
+            <CLEAR_TYPE>S_POS</CLEAR_TYPE>
+        </CIMEON>
+    </SECTION>
+    
+    <SECTION>
+        <TITLE>E3</TITLE>
+        <SEQUENCE>FIXED</SEQUENCE>
+        <TRIGGER>CIMEON</TRIGGER>
+        <SIMON>
+            <DRAW>SPLIT</DRAW>
+            <POS>LEFT</POS>
+            <CLEAR_TYPE>S_POS</CLEAR_TYPE>
+        </SIMON>
+        <LUKE>
+            <DRAW>SPLIT</DRAW>
+            <POS>RIGHT</POS>
+            <CLEAR_TYPE>S_POS</CLEAR_TYPE>
+        </LUKE>
+        <CIMEON>
+            <DRAW>SPLIT</DRAW>
+            <POS>CENTER</POS>
+            <CLEAR_TYPE>S_POS</CLEAR_TYPE>
         </CIMEON>
     </SECTION>
     
     <SECTION>
         <TITLE>EFsolo</TITLE>
+        <SEQUENCE>ONE_SHOT</SEQUENCE>
         <SIMON>
-            <DRAW>SPLIT</DRAW>
-            <POS>CENTER</POS>
+            <DRAW>NIL</DRAW>
         </SIMON>
         <LUKE>
-            <DRAW>SPLIT</DRAW>
-            <POS>RIGHT</POS>
+            <DRAW>NIL</DRAW>
         </LUKE>
         <CIMEON>
             <DRAW>STANDARD</DRAW>
-            <POS>CENTER</POS>
+            <CLEAR_TYPE>HARD_ALL</CLEAR_TYPE>
         </CIMEON>
     </SECTION>
+        
     
     <SECTION>
         <TITLE>Fsplits</TITLE>
         <SIMON>
             <DRAW>SPLIT</DRAW>
             <POS>LEFT</POS>
+            <CLEAR_TYPE>S_POS</CLEAR_TYPE>
         </SIMON>
         <LUKE>
             <DRAW>SPLIT</DRAW>
             <POS>RIGHT</POS>
+            <CLEAR_TYPE>S_POS</CLEAR_TYPE>
         </LUKE>
         <CIMEON>
             <DRAW>SPLIT</DRAW>
             <POS>CENTER</POS>
+            <CLEAR_TYPE>S_POS</CLEAR_TYPE>
         </CIMEON>
     </SECTION>
     
+    
     <SECTION>
         <TITLE>EFsolo</TITLE>
+        <SEQUENCE>ONE_SHOT</SEQUENCE>
         <SIMON>
-            <DRAW>SPLIT</DRAW>
-            <POS>CENTER</POS>
+            <DRAW>STANDARD</DRAW>
+            <CLEAR_TYPE>HARD_ALL</CLEAR_TYPE>
         </SIMON>
         <LUKE>
-            <DRAW>SPLIT</DRAW>
-            <POS>RIGHT</POS>
+            <DRAW>NIL</DRAW>
         </LUKE>
         <CIMEON>
-            <DRAW>STANDARD</DRAW>
-            <POS>CENTER</POS>
+            <DRAW>NIL</DRAW>
         </CIMEON>
     </SECTION>
 
@@ -207,30 +253,32 @@
         <SIMON>
             <DRAW>SPLIT</DRAW>
             <POS>LEFT</POS>
+            <CLEAR_TYPE>S_POS</CLEAR_TYPE>
         </SIMON>
         <LUKE>
             <DRAW>SPLIT</DRAW>
             <POS>RIGHT</POS>
+            <CLEAR_TYPE>S_POS</CLEAR_TYPE>
         </LUKE>
         <CIMEON>
             <DRAW>SPLIT</DRAW>
             <POS>CENTER</POS>
+            <CLEAR_TYPE>S_POS</CLEAR_TYPE>
         </CIMEON>
     </SECTION>
     
-    <SECTION>
+ <SECTION>
         <TITLE>EFsolo</TITLE>
+        <SEQUENCE>ONE_SHOT</SEQUENCE>
         <SIMON>
-            <DRAW>SPLIT</DRAW>
-            <POS>CENTER</POS>
+            <DRAW>STANDARD</DRAW>
+            <CLEAR_TYPE>HARD_ALL</CLEAR_TYPE>
         </SIMON>
         <LUKE>
-            <DRAW>SPLIT</DRAW>
-            <POS>RIGHT</POS>
+            <DRAW>NIL</DRAW>
         </LUKE>
         <CIMEON>
-            <DRAW>STANDARD</DRAW>
-            <POS>CENTER</POS>
+            <DRAW>NIL</DRAW>
         </CIMEON>
     </SECTION>
     
@@ -239,47 +287,60 @@
         <SIMON>
             <DRAW>SPLIT</DRAW>
             <POS>LEFT</POS>
+            <CLEAR_TYPE>S_POS</CLEAR_TYPE>
         </SIMON>
         <LUKE>
             <DRAW>SPLIT</DRAW>
             <POS>RIGHT</POS>
+            <CLEAR_TYPE>S_POS</CLEAR_TYPE>
         </LUKE>
         <CIMEON>
             <DRAW>SPLIT</DRAW>
             <POS>CENTER</POS>
+            <CLEAR_TYPE>S_POS</CLEAR_TYPE>
         </CIMEON>
     </SECTION>
     
     
     <SECTION>
-        <TITLE>G</TITLE> //18
+        <TITLE>G</TITLE> 
         <SIMON>
             <DRAW>STANDARD</DRAW>
+
+            <ATT_SECS>1</ATT_SECS>
+            <HOLD_SECS>2</HOLD_SECS>
             <POS>CENTER</POS>
         </SIMON>
         <LUKE>
             <DRAW>STANDARD</DRAW>
+              <ATT_SECS>1</ATT_SECS>
+            <HOLD_SECS>2</HOLD_SECS>
             <POS>CENTER</POS>
         </LUKE>
         <CIMEON>
             <DRAW>STANDARD</DRAW>
+            <ATT_SECS>1</ATT_SECS>
+            <HOLD_SECS>2</HOLD_SECS>
             <POS>CENTER</POS>
         </CIMEON>
     </SECTION>
     
     <SECTION>
-        <TITLE>HJ</TITLE>
+        <TITLE>H</TITLE>
          <SIMON>
             <DRAW>SPLIT</DRAW>
             <POS>LEFT</POS>
+            <CLEAR_TYPE>S_POS</CLEAR_TYPE>
         </SIMON>
         <LUKE>
             <DRAW>SPLIT</DRAW>
             <POS>RIGHT</POS>
+            <CLEAR_TYPE>S_POS</CLEAR_TYPE>
         </LUKE>
         <CIMEON>
             <DRAW>SPLIT</DRAW>
             <POS>CENTER</POS>
+            <CLEAR_TYPE>S_POS</CLEAR_TYPE>
         </CIMEON>
     </SECTION>
     
@@ -287,47 +348,127 @@
         <TITLE>I</TITLE>
          <SIMON>
             <DRAW>STANDARD</DRAW>
+            <ATT_SECS>8</ATT_SECS>
+            <HOLD_SECS>7.99</HOLD_SECS>
             <POS>LEFT</POS>
         </SIMON>
          <LUKE>
-            <DRAW>SPLIT</DRAW>
-            <POS>RIGHT</POS>
+            <DRAW>STANDARD</DRAW>
+            <ATT_SECS>8</ATT_SECS>
+            <HOLD_SECS>7.99</HOLD_SECS>
+            <POS>LEFT</POS>
         </LUKE>
         <CIMEON>
-            <DRAW>SPLIT</DRAW>
-            <POS>CENTER</POS>
+            <DRAW>STANDARD</DRAW>
+            <ATT_SECS>8</ATT_SECS>
+            <HOLD_SECS>7.99</HOLD_SECS>
+            <POS>LEFT</POS>
+        </CIMEON>
+    </SECTION>
+    
+     <SECTION>
+        <TITLE>J1</TITLE>
+        <SEQUENCE>FIXED</SEQUENCE>
+        <TRIGGER>SIMON</TRIGGER>
+         <SIMON>
+            <DRAW>GRID</DRAW>
+            <HOLD_SECS>0</HOLD_SECS>
+            <FADE_SECS>0.3</FADE_SECS>
+             <CLEAR_TYPE>G_POS</CLEAR_TYPE>
+        </SIMON>
+        <LUKE>
+            <DRAW>GRID</DRAW>
+              <HOLD_SECS>0</HOLD_SECS>
+             <FADE_SECS>0.3</FADE_SECS>
+             <CLEAR_TYPE>G_POS</CLEAR_TYPE>
+        </LUKE>
+        <CIMEON>
+            <DRAW>GRID</DRAW>
+              <HOLD_SECS>0</HOLD_SECS>
+             <FADE_SECS>0.3</FADE_SECS>
+             <CLEAR_TYPE>G_POS</CLEAR_TYPE>
         </CIMEON>
     </SECTION>
     
     <SECTION>
-        <TITLE>HJ</TITLE>
+        <TITLE>J2</TITLE>
+        <SEQUENCE>FIXED</SEQUENCE>
+        <TRIGGER>LUKE</TRIGGER>
          <SIMON>
-            <DRAW>SPLIT</DRAW>
-            <POS>LEFT</POS>
+            <DRAW>GRID</DRAW>
+            <HOLD_SECS>0</HOLD_SECS>
+            <FADE_SECS>0.3</FADE_SECS>
+             <CLEAR_TYPE>G_POS</CLEAR_TYPE>
         </SIMON>
         <LUKE>
-            <DRAW>SPLIT</DRAW>
-            <POS>RIGHT</POS>
+            <DRAW>GRID</DRAW>
+              <HOLD_SECS>0</HOLD_SECS>
+             <FADE_SECS>0.3</FADE_SECS>
+             <CLEAR_TYPE>G_POS</CLEAR_TYPE>
         </LUKE>
         <CIMEON>
-            <DRAW>SPLIT</DRAW>
-            <POS>CENTER</POS>
+            <DRAW>GRID</DRAW>
+              <HOLD_SECS>0</HOLD_SECS>
+             <FADE_SECS>0.3</FADE_SECS>
+             <CLEAR_TYPE>G_POS</CLEAR_TYPE>
         </CIMEON>
     </SECTION>
-
+    
+    <SECTION>
+        <TITLE>J3</TITLE>
+        <SEQUENCE>FIXED</SEQUENCE>
+        <TRIGGER>CIMEON</TRIGGER>
+         <SIMON>
+            <DRAW>GRID</DRAW>
+            <HOLD_SECS>0</HOLD_SECS>
+            <FADE_SECS>0.3</FADE_SECS>
+             <CLEAR_TYPE>G_POS</CLEAR_TYPE>
+        </SIMON>
+        <LUKE>
+            <DRAW>GRID</DRAW>
+              <HOLD_SECS>0</HOLD_SECS>
+             <FADE_SECS>0.3</FADE_SECS>
+             <CLEAR_TYPE>G_POS</CLEAR_TYPE>
+        </LUKE>
+        <CIMEON>
+            <DRAW>GRID</DRAW>
+              <HOLD_SECS>0</HOLD_SECS>
+             <FADE_SECS>0.3</FADE_SECS>
+             <CLEAR_TYPE>G_POS</CLEAR_TYPE>
+        </CIMEON>
+    </SECTION>
+    
+    <SECTION>
+        <TITLE>J4</TITLE>
+         <SIMON>
+            <DRAW>NIL</DRAW>
+        </SIMON>
+        <LUKE>
+            <DRAW>NIL</DRAW>
+        </LUKE>
+        <CIMEON>
+            <DRAW>GRID</DRAW>
+              <HOLD_SECS>0.5</HOLD_SECS>
+             <FADE_SECS>1.5</FADE_SECS>
+             <AUTO_FADE>1</AUTO_FADE>
+             <CLEAR_TYPE>G_POS</CLEAR_TYPE>
+        </CIMEON>
+    </SECTION>
+    
+    
     <SECTION>
         <TITLE>K</TITLE>
          <SIMON>
-            <DRAW>SPLIT</DRAW>
-            <POS>LEFT</POS>
+            <DRAW>STANDARD</DRAW>
+            <ATT_SECS>10</ATT_SECS>
+            <HOLD_SECS>0</HOLD_SECS>
+            <FADE_SECS>3</FADE_SECS>
         </SIMON>
         <LUKE>
-            <DRAW>STANDARD</DRAW>
-            <POS>CENTER</POS>
+            <DRAW>NIL</DRAW>
         </LUKE>
         <CIMEON>
-            <DRAW>SPLIT</DRAW>
-            <POS>CENTER</POS>
+            <DRAW>NIL</DRAW>
         </CIMEON>
     </SECTION>
     
@@ -335,48 +476,132 @@
         <TITLE>L</TITLE>
          <SIMON>
             <DRAW>STANDARD</DRAW>
-            <POS>LEFT</POS>
+            <ATT_SECS>1</ATT_SECS>
+            <HOLD_SECS>2</HOLD_SECS>
+            <POS>CENTER</POS>
         </SIMON>
         <LUKE>
             <DRAW>STANDARD</DRAW>
-            <POS>RIGHT</POS>
+              <ATT_SECS>1</ATT_SECS>
+            <HOLD_SECS>2</HOLD_SECS>
+            <POS>CENTER</POS>
         </LUKE>
         <CIMEON>
             <DRAW>STANDARD</DRAW>
+            <ATT_SECS>1</ATT_SECS>
+            <HOLD_SECS>2</HOLD_SECS>
             <POS>CENTER</POS>
         </CIMEON>
     </SECTION>
     
     <SECTION>
-        <TITLE>M</TITLE>
+        <TITLE>M1</TITLE>
+        <SEQUENCE>FIXED</SEQUENCE>
+        <TRIGGER>CIMEON</TRIGGER>
          <SIMON>
-            <DRAW>STANDARD</DRAW>
+            <DRAW>SPLIT</DRAW>
+            <ATT_SECS>0.1</ATT_SECS>
+            <HOLD_SECS>1.5</HOLD_SECS>
+            <FADE_SECS>1</FADE_SECS>
             <POS>LEFT</POS>
+            <CLEAR_TYPE>S_POS</CLEAR_TYPE>
+            <AUTO_FADE>1</AUTO_FADE>
         </SIMON>
         <LUKE>
-            <DRAW>STANDARD</DRAW>
+            <DRAW>SPLIT</DRAW>
+            <ATT_SECS>0.1</ATT_SECS>
+            <HOLD_SECS>1.5</HOLD_SECS>
+            <FADE_SECS>1</FADE_SECS>
             <POS>RIGHT</POS>
+            <CLEAR_TYPE>S_POS</CLEAR_TYPE>
+            <AUTO_FADE>1</AUTO_FADE>
         </LUKE>
         <CIMEON>
-            <DRAW>STANDARD</DRAW>
+            <DRAW>SPLIT</DRAW>
             <POS>CENTER</POS>
+            <HOLD_SECS>1.5</HOLD_SECS>
+            <FADE_SECS>0.5</FADE_SECS>
+            <AUTO_FADE>1</AUTO_FADE>
+        </CIMEON>
+    </SECTION>
+    
+    <SECTION>
+        <TITLE>M2</TITLE>
+        <SEQUENCE>FIXED</SEQUENCE>
+        <TRIGGER>CIMEON</TRIGGER>
+         <SIMON>
+            <DRAW>STANDARD</DRAW>
+            <ATT_SECS>0.1</ATT_SECS>
+            <HOLD_SECS>1.5</HOLD_SECS>
+            <FADE_SECS>1</FADE_SECS>
+            <AUTO_FADE>1</AUTO_FADE>
+        </SIMON>
+        <LUKE>
+            <DRAW>NIL</DRAW>
+        </LUKE>
+        <CIMEON>
+            <DRAW>SPLIT</DRAW>
+            <POS>CENTER</POS>
+            <HOLD_SECS>1.5</HOLD_SECS>
+            <FADE_SECS>0.5</FADE_SECS>
+            <AUTO_FADE>1</AUTO_FADE>
+        </CIMEON>
+    </SECTION>
+    
+     <SECTION>
+        <TITLE>M3</TITLE>
+        <SEQUENCE>FIXED</SEQUENCE>
+        <TRIGGER>ANY</TRIGGER>
+         <SIMON>
+            <DRAW>SPLIT</DRAW>
+            <ATT_SECS>0.1</ATT_SECS>
+            <HOLD_SECS>1.5</HOLD_SECS>
+            <FADE_SECS>1</FADE_SECS>
+            <POS>LEFT</POS>
+            <CLEAR_TYPE>S_POS</CLEAR_TYPE>
+            <AUTO_FADE>1</AUTO_FADE>
+        </SIMON>
+        <LUKE>
+            <DRAW>SPLIT</DRAW>
+            <ATT_SECS>0.1</ATT_SECS>
+            <HOLD_SECS>1.5</HOLD_SECS>
+            <FADE_SECS>1</FADE_SECS>
+            <POS>RIGHT</POS>
+            <CLEAR_TYPE>S_POS</CLEAR_TYPE>
+            <AUTO_FADE>1</AUTO_FADE>
+        </LUKE>
+        <CIMEON>
+            <DRAW>SPLIT</DRAW>
+            <POS>CENTER</POS>
+            <HOLD_SECS>1.5</HOLD_SECS>
+            <FADE_SECS>0.5</FADE_SECS>
+            <AUTO_FADE>1</AUTO_FADE>
         </CIMEON>
     </SECTION>
     
     <SECTION>
         <TITLE>N</TITLE>
-         <SIMON>
+
+        <SIMON>
             <DRAW>STANDARD</DRAW>
-            <POS>LEFT</POS>
+
+            <ATT_SECS>1</ATT_SECS>
+            <HOLD_SECS>2</HOLD_SECS>
+            <POS>CENTER</POS>
         </SIMON>
         <LUKE>
             <DRAW>STANDARD</DRAW>
-            <POS>RIGHT</POS>
+              <ATT_SECS>1</ATT_SECS>
+            <HOLD_SECS>2</HOLD_SECS>
+            <POS>CENTER</POS>
         </LUKE>
         <CIMEON>
             <DRAW>STANDARD</DRAW>
+            <ATT_SECS>1</ATT_SECS>
+            <HOLD_SECS>2</HOLD_SECS>
             <POS>CENTER</POS>
         </CIMEON>
+
     </SECTION>
     
     <SECTION>
@@ -384,14 +609,17 @@
          <SIMON>
             <DRAW>SPLIT</DRAW>
             <POS>LEFT</POS>
+            <CLEAR_TYPE>S_POS</CLEAR_TYPE>
         </SIMON>
         <LUKE>
             <DRAW>SPLIT</DRAW>
             <POS>RIGHT</POS>
+            <CLEAR_TYPE>S_POS</CLEAR_TYPE>
         </LUKE>
         <CIMEON>
             <DRAW>SPLIT</DRAW>
             <POS>CENTER</POS>
+            <CLEAR_TYPE>S_POS</CLEAR_TYPE>
         </CIMEON>
     </SECTION>
 

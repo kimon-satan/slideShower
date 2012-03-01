@@ -5,6 +5,8 @@
 #include "ofxManyMouse.h"
 #include "ofxXmlSettings.h"
 
+#include "slide.h"
+
 class testApp : public ofBaseApp, public ofxManyMouse{
 	
 public:
@@ -46,37 +48,34 @@ private:
 	void standardDraw(e_performer t_perf);
 	void splitDraw(e_performer t_perf);
 	void loadSectionSettings();
+	void loadSlideParameters(slide &s, ofxXmlSettings XML);
 	void orderImages(int t_perf);
 	void nextSection();
 	
 	vector<vector<vector<ofImage * > > >images;
+	vector<slide> currentSlides;
+	vector<vector<slide> > sectionSlides;
 	
 	int numSections;
 	
 	vector<string> sectionTitles;
 	vector<string> sectionSequence;
-	vector<vector<string > >sectionDrawTypes;
-	
-	vector<vector<float> >sectionAttackTimes;
-	vector<vector<float> >sectionHoldTimes;
-	vector<vector<float> >sectionFadeTimes;
-	
-	vector<vector<string> > sectionPositions;
 	vector<int> triggerPerformer;
 	
-	bool isMouseDown[3];
-	int currentImage[3];
+	vector<int> gridIndexList;
+	
+	int newSectionCount;
+	int gridCount;
+	int oneShotCount;
+	int screenMode;
+	int assigns[3];
+	int sequenceIndex[3]; //rename to sequenceIndex
 	int deviceNum, currentSection;
 	e_performer c_perf;
 	
-	float perfAlphas[3];
-	float preAlphas[3];
+
 	
-	string c_drawMode[3];
-	ofVec2f splitPosition[3]; // could be fixed for performer or variable
-	
-	int screenMode;
-	int assigns[3];
+
 
 	
 };
